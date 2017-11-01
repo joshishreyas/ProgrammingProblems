@@ -98,9 +98,9 @@ int main( ) {
 				rp++;
 			}
 		}
-		if(result) 
+		if(result)
 				cout<<"YES"<<endl;
-		else 
+		else
 				cout<<"NO"<<endl;
 	}
 	return 0;
