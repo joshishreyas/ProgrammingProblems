@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int uli;
+const double pi=acos(-1);
+int main(){
+  freopen("a.in","r",stdin);
+  freopen("a.out","w",stdout);
+  int t;
+  scanf("%d",&t);
+  for(int tt=1;tt<=t;tt++){
+    double p,x,y;
+    scanf("%lf %lf %lf",&p,&x,&y);
+    if(pow(x-50,2)+pow(y-50,2)>50*50){
+      printf("Case #%d: white\n",tt);
+      continue;
+    }
+    double angle=atan2(x-50,y-50);
+    if(angle<0)angle+=pi+pi;
+    double up= (2.0*pi*p)/100.0;
+    if(angle<=up)printf("Case #%d: black\n",tt);
+    else printf("Case #%d: white\n",tt);
+  }
+  return 0;
+}

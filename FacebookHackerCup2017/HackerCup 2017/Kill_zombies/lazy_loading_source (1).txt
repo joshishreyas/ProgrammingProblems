@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+    int t,n,w[100],cs=1;
+    cin>>t;
+    while(t--)
+    {
+        int c=0;
+        scanf("%d",&n);
+        for(int i=0; i<n; i++)
+        {
+            scanf("%d",&w[i]);
+        }
+        sort(w,w+n);
+        int sum=0;
+        int k=0;
+        for(int i=n-1; i>=k; i--)
+        {
+            sum+=w[i];
+            //printf("%dk%di%d\n",sum,k,i);
+            if(sum<50 && i==k)
+            {
+                continue;
+            }
+            if(sum>=50)
+            {
+                c++;
+                sum=0;
+            }
+            else
+            {
+                for(int j=k;j<=i;j++,k++)
+                {
+                    sum+=w[i];
+                    //printf("w%dk%d\n",sum,k);
+                    if(sum>=50)
+                    {
+                        c++;
+                        k++;
+                        break;
+                    }
+                }
+                sum=0;
+            }
+            // printf("c%d\n",c);
+        }
+
+       printf("Case #%d: %d\n",cs++,c);
+    }
+    return 0;
+}
+
+
+

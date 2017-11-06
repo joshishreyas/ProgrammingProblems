@@ -1,0 +1,31 @@
+import math
+import sys
+
+
+def main():
+    if len(sys.argv) < 2:
+        print('Needs at least two arguments')
+        return
+
+    with open(sys.argv[1], 'rb') as input:
+        with open('out.txt', 'wb') as output:
+            num_cases = int(input.readline())
+            for case in range(num_cases):
+                line = input.readline()
+                vals = line.split()
+                p = int(vals[0])
+                x = int(vals[1]) - 50
+                y = int(vals[2]) - 50
+                if x ** 2 + y ** 2 > 2500:
+                    output.write('Case #%d: white\n' % (case + 1))
+                else:
+                    angle = math.atan2(float(x), float(y)) / (2 * math.pi) * 100
+                    if angle < 0:
+                        angle += 100
+                    if angle < p:
+                        output.write('Case #%d: black\n' % (case + 1))
+                    else:
+                        output.write('Case #%d: white\n' % (case + 1))
+
+if __name__ == '__main__':
+    main()
