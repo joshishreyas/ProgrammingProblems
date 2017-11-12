@@ -68,40 +68,7 @@ int main( ) {
 	int t;
 	cin>>t;
 	while(t--) {
-		int n,r;
-		cin>>n>>r;
-		int result=1;
-		int ratings[n],leftSender[n],rightSender[n];
-		int lp=0,rp=0;
-		for(int i=0;i<n;i++) {
-			cin>>ratings[i];
-		}
-		for(int i=0;i<n-1;i++) {
-			if(ratings[i] >= ratings[i+1]) {
-				leftSender[lp]=ratings[i];
-				if(lp>0) {
-					if(leftSender[lp-1] <= leftSender[lp]) {
-			 			result=0;
-			 			break;
-					}
-				}
-				lp++;
-			}
-			else if(ratings[i] <= ratings[i+1]) {
-				rightSender[rp] = ratings[i];
-				if(rp>0) {
-					if(rightSender[rp-1] >= rightSender[rp]) {
-						result=0;
-						break;
-					}
-				}
-				rp++;
-			}
-		}
-		if(result)
-				cout<<"YES"<<endl;
-		else
-				cout<<"NO"<<endl;
+		
 	}
 	return 0;
 }
